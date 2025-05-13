@@ -1,5 +1,5 @@
 use crate::plugins::core::plugin_loader::{AppendMethod, PanelPosition, Plugin};
-use chrono::Utc;
+use chrono::Local;
 use glib::{ControlFlow, timeout_add_seconds_local};
 use gtk4::Label;
 use gtk4::prelude::*;
@@ -32,7 +32,7 @@ impl Plugin for ClockPlugin {
     fn on_start(&mut self) {
         let label_clone = self.label.clone();
         self.timer_id = Some(timeout_add_seconds_local(1, move || {
-            let now = Utc::now();
+            let now = Local::now();
             label_clone.set_text(&now.format("%H:%M:%S").to_string());
             ControlFlow::Continue
         }));
