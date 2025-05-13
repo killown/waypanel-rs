@@ -1,0 +1,14 @@
+[package]
+name = "waypanel"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+gtk4 = { version = "0.9.6", package = "gtk4" }
+glib = "0.20.9"
+gtk4-layer-shell = "0.5"
+chrono = "0.4.41"
+
+[features]
+default = ["clock"]
+clock = []
